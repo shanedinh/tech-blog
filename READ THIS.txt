@@ -1,0 +1,16 @@
+to set up this challenge
++++ for your info the Handlebars package does not have to be installed separately because the express-handlebars package includes it.
+1. Add your credentials to the .env file
+2. Create your database
+Then the set up should be complete
+Although the server will start, code work must be completed to have a functional app 
+
+There are multiple ways to add these files into a gitHub repository. I hope you are confident with your Git skills, so you can easily add/upload these files into a Github repository. So that you will be able to submit this Challenge.
+
+In my gitignore file I have the .env listed please delete this from your gitignore so that you can upload it to your heroku server
+
+*** WARNING ***
+Pay close attention to singular Model names, singular Controller urls, and Plural Handelbar objects. It confused me while I was examining the code. The app works as it is. But Sequelize can change names at runtime, so Be careful and doublecheck if you are using the correct names of models, views, tables, and routes in your code.
+
+*** Note ***
+This is a tough assignment. I hope this helps. Creating a Full Stack app from scratch is valuable. My intention is to provide boilerplate code so it saves time. This app's code should be viewed as an example of recomended file/folder organization and code structures within the files. I believe this class has the development skills to complete this assignment sucessfully. If you have any questions do not hesitate to ask. 

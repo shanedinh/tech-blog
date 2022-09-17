@@ -1,0 +1,52 @@
+<div class="post">
+  <article class="card">
+    <div class="card-header flex-row justify-space-between">
+      <h2>{{!-- handlebar code here --}}</h2>
+      <div>
+        Posted by {{!-- handlebar code here --}} on {{!-- handlebar code here --}}
+      </div>
+    </div>
+    <div class="card-body">
+      {{!-- handlebar code here --}}
+    </div>
+  </article>
+
+  {{#if post.Comments}}
+    <section class="card">
+      <div class="card-header">
+        <h3>Comments</h3>
+      </div>
+
+      <div class="card-body">
+        {{#each post.Comments}}
+          <div>
+            <p>
+              {{!-- handlebar code here --}}
+            </p>
+            <p>
+              &mdash; {{!-- handlebar code here --}}, {{!-- handlebar code here --}}
+            </p>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  {{/if}}
+
+  <form id="new-comment-form" class="card">
+    <div class="card-header">
+      <h3>Add New Comment</h3>
+    </div>
+
+    <div class="card-body">
+      <input type="hidden" name="post-id" value="{{!-- handlebar code here --}}" />
+
+      <label class="form-label" for="comment-body">Comment</label>
+
+      <textarea name="comment-body" class="form-input"></textarea>
+
+      <button type="submit" class="btn">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/comment.js"></script>
