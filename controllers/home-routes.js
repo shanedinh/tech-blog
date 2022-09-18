@@ -6,9 +6,9 @@ const { Post, Comment, User } = require("../models/");
 // http://localhost:3001/
 // get all posts for homepage
 router.get("/", (req, res) => {
+  console.log("===============");
   Post.findAll({
     atrributes: ["id", "post_id", "title", "created_at"],
-
     include: [
       {
         model: Comment,
@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
     .then((data) => {
       const posts = data.map((post) => post.get({ plain: true }));
 
-      res.render("layouts/main", {
+      res.render("all-posts", {
         posts,
         loggedIn: req.session.loggedIn,
       });
