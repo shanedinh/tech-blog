@@ -21,6 +21,7 @@ Post.hasMany(Comment, {
 
 User.hasMany(Comment, {
   foreignKey: "user_id",
+  onDelete: "SET NULL",
 });
 
 //comment has a relation to user
