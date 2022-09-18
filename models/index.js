@@ -7,32 +7,34 @@ const Comment = require("./Comment");
 //post has a relation to user
 User.hasMany(Post, {
   foreignKey: "user_id",
+  onDelete: "CASCADE",
 });
 
 Post.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "SET NULL",
+  onDelete: "CASCADE",
 });
 
 //post has a relation to comment
 Post.hasMany(Comment, {
   foreignKey: "post_id",
+  onDelete: "CASCADE",
 });
 
 User.hasMany(Comment, {
   foreignKey: "user_id",
-  onDelete: "SET NULL",
+  onDelete: "CASCADE",
 });
 
 //comment has a relation to user
 Comment.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "SET NULL",
+  onDelete: "CASCADE",
 });
 
 Comment.belongsTo(Post, {
   foreignKey: "post_id",
-  onDelete: "SET NULL",
+  onDelete: "CASCADE",
 });
 // the correct relation code is up to you
 
