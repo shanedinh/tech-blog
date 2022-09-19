@@ -1,6 +1,9 @@
 {
   "name": "tech-blog",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.11.1"
+  },
   "description": "This is starter code for the 2U Bootcamp Challenge 14.",
   "main": "server.js",
   "scripts": {
