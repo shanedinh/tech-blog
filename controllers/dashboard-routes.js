@@ -1,12 +1,14 @@
 const router = require("express").Router();
 // in order to work with the database we need to require the models which in turn are connected to the database
 // this is a named import, Also a constructor,
-const { Post } = require("../models/");
+const { Post, User, Comment } = require("../models/");
 const withAuth = require("../utils/auth");
 
 // http://localhost:3000/dashboard/
 // withAuth middleware is used to check if the user is logged in
 router.get("/", withAuth, (req, res) => {
+  console.log(req.session);
+  console.log("=================");
   Post.findAll({
     where: {
       user_id: req.session.user_id,

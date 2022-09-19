@@ -1,6 +1,48 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 
+router.get("/", (req, res) => {
+  User.findAll({
+    attributes: { exclude: ["password"] },
+  })
+    .then((data) => res.json(data))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get("/:id", (req, res) => {
+  User.findOne({
+    attributes: { exclude: ["password"] },
+    where: { id: req.params.id },
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "post_url", "post_id", "created_at"],
+      },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "created_at"],
+        include: {
+          model: Post,
+          attributes: ["title"],
+        },
+      },
+    ],
+  })
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 // post a new user
 // http://localhost:3000/api/users
 router.post("/", (req, res) => {
@@ -13,9 +55,9 @@ router.post("/", (req, res) => {
         req.session.user_id = data.id;
         req.session.username = data.username;
         req.session.loggedIn = true;
-      });
 
-      res.json(data);
+        res.json(data);
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -70,7 +112,7 @@ router.post("/logout", (req, res) => {
 
 // delete a user
 // http://localhost:3000/api/users/user/:id
-router.delete("/user/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   User.destroy({
     where: {
       id: req.params.id,
