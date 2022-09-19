@@ -12,5 +12,5 @@ The following animation demonstrates the application functionality:
 ## Getting Started
 
 `npm start` to run the application
-or
-https://peaceful-lowlands-35710.herokuapp.com/
+<br/>or
+<br/>https://peaceful-lowlands-35710.herokuapp.com/
