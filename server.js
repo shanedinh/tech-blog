@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
 
 const app = express();
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/config");
 //IFEE to create the session store
